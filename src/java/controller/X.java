@@ -27,14 +27,9 @@ public class X extends HttpServlet {
 
         String name = request.getParameter("name");
         System.out.println(name);
-        
-        try {
-            Thread.sleep(5000);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
+                      
         response.getWriter().write("Hello");
+        
     }
 
    

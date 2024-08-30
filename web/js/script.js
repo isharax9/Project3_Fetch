@@ -5,9 +5,24 @@
 
 
 function getRequest() {
-    fetch("X?name=Sahan").then(
-            response => {
-                alert("Done");
-            }
-    );
+    fetch("X?name=Sahan")
+            .then(
+                    response => {
+                        if(response.ok){
+                        return response.text();
+                    }else{
+                        throw new Error("Response Error");
+                        }
+                    }
+                )
+            .then(
+                    text => {
+                        console.log(text);
+                    }
+            )
+            .catch(
+                    error => {
+                        console.log(error);
+                    }
+            );
 }
