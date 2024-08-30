@@ -5,16 +5,27 @@
 
 
 function getRequest() {
-    fetch("X?name=Sahan")
+    
+    var data = {
+      name:"Sahan"  
+    };
+    
+    fetch("X",
+            {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {"Content-Type": "application/json"}
+            }
+    )
             .then(
                     response => {
-                        if(response.ok){
-                        return response.text();
-                    }else{
-                        throw new Error("Response Error");
+                        if (response.ok) {
+                            return response.text();
+                        } else {
+                            throw new Error("Response Error");
                         }
                     }
-                )
+            )
             .then(
                     text => {
                         console.log(text);
