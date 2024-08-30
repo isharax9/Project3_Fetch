@@ -5,6 +5,7 @@
 package controller;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -21,8 +22,6 @@ import model.User;
 @WebServlet(name = "X", urlPatterns = {"/X"})
 public class X extends HttpServlet {
 
-    
-   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -30,10 +29,16 @@ public class X extends HttpServlet {
         Gson gson = new Gson();
         User user = gson.fromJson(request.getReader(), User.class);
         System.out.println(user.getName());
-                      
-        response.getWriter().write("Hello");
-        
+
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("country", "Sri Lanka");
+        jsonObject.addProperty("city", "Colombo");
+
+        response.setContentType("application/json");
+        response.getWriter().write(gson.toJson(jsonObject));
+
     }
 
-   
+}
+
 }

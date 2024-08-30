@@ -22,8 +22,9 @@ async function getRequest() {
             }
     );
     if (response.ok) {
-        var text = await response.text();
-        console.log(text);
+        var json = await response.json();
+        console.log(json.country);
+        console.log(json.city);
     }else{
         console.log("Response Error");
     }
