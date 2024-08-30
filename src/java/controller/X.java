@@ -25,7 +25,16 @@ public class X extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("Servlet X");
+        String name = request.getParameter("name");
+        System.out.println(name);
+        
+        try {
+            Thread.sleep(5000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        response.getWriter().write("Hello");
     }
 
    
