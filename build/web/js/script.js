@@ -4,6 +4,10 @@
  */
 
 
-function getRequest(){
-    fetch("X");
+function getRequest() {
+    fetch("X?name=Sahan").then(
+            response => {
+                alert("Done");
+            }
+    );
 }
