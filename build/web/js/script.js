@@ -4,36 +4,27 @@
  */
 
 
-function getRequest() {
-    
+
+
+async function getRequest() {
+
+    var x = 10;
+
     var data = {
-      name:"Sahan"  
+        name: "Sahan"
     };
-    
-    fetch("X",
+
+    var response = await fetch("X",
             {
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: {"Content-Type": "application/json"}
             }
-    )
-            .then(
-                    response => {
-                        if (response.ok) {
-                            return response.text();
-                        } else {
-                            throw new Error("Response Error");
-                        }
-                    }
-            )
-            .then(
-                    text => {
-                        console.log(text);
-                    }
-            )
-            .catch(
-                    error => {
-                        console.log(error);
-                    }
-            );
+    );
+    if (response.ok) {
+        var text = await response.text();
+        console.log(text);
+    }else{
+        console.log("Response Error");
+    }
 }
