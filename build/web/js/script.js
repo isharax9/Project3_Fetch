@@ -8,13 +8,11 @@
 
 async function getRequest() {
 
-    var x = 10;
-
-    var data = {
+    const data = {
         name: "Sahan"
     };
 
-    var response = await fetch("X",
+    const response = await fetch("X",
             {
                 method: "POST",
                 body: JSON.stringify(data),
@@ -22,10 +20,10 @@ async function getRequest() {
             }
     );
     if (response.ok) {
-        var json = await response.json();
+        const json = await response.json();
         console.log(json.country);
         console.log(json.city);
-    }else{
+    } else {
         console.log("Response Error");
     }
 }

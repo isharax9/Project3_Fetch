@@ -40,5 +40,3 @@ public class X extends HttpServlet {
     }
 
 }
-
-}
